@@ -2,7 +2,8 @@
 // DOM ELEMENTS
 // ======================================================
 
-const phoneInput = document.getElementById("phone");
+//const phoneInput = document.getElementById("phone");
+const emailInput = document.getElementById("email");
 const stateSelect = document.getElementById("state");
 const citySelect = document.getElementById("city");
 const signupBtn = document.getElementById("signupBtn");
@@ -13,7 +14,8 @@ const signupBtn = document.getElementById("signupBtn");
 
 function initApp() {
     loadLocations();
-    setupPhoneFormatter();
+    //setupPhoneFormatter();
+    setupEmailInput();
     setupSignupButton();
 }
 
@@ -90,36 +92,63 @@ function clearCities() {
 }
 
 // ======================================================
-// PHONE FUNCTIONS
+// EMAIL FUNCTIONS
 // ======================================================
 
-function setupPhoneFormatter() {
+function setupEmailInput() {
 
-    phoneInput.addEventListener("input", function () {
-
-        let value = phoneInput.value;
-
-        value = value.replace(/\D/g, "");
-        value = value.substring(0, 10);
-
-        if (value.length > 6) {
-            value =
-                `(${value.substring(0,3)}) ${value.substring(3,6)}-${value.substring(6)}`;
-        }
-        else if (value.length > 3) {
-            value =
-                `(${value.substring(0,3)}) ${value.substring(3)}`;
-        }
-        else if (value.length > 0) {
-            value =
-                `(${value}`;
-        }
-
-        phoneInput.value = value;
-
+    emailInput.addEventListener("input", () => {
+        console.log(emailInput.value);
     });
 
 }
+
+function validateEmail() {
+
+    const email = emailInput.value.trim();
+
+    const emailPattern =
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address.");
+        emailInput.focus();
+        return false;
+    }
+
+    return true;
+}
+
+
+// function setupPhoneFormatter() {
+
+//     phoneInput.addEventListener("input", function () {
+
+//         let value = phoneInput.value;
+
+//         value = value.replace(/\D/g, "");
+//         value = value.substring(0, 10);
+
+//         if (value.length > 6) {
+//             value =
+//                 `(${value.substring(0,3)}) ${value.substring(3,6)}-${value.substring(6)}`;
+//         }
+//         else if (value.length > 3) {
+//             value =
+//                 `(${value.substring(0,3)}) ${value.substring(3)}`;
+//         }
+//         else if (value.length > 0) {
+//             value =
+//                 `(${value}`;
+//         }
+
+//         phoneInput.value = value;
+
+//     });
+
+// }
+
+
 
 // ======================================================
 // SIGN UP
@@ -133,16 +162,18 @@ function setupSignupButton() {
 
 function validateSignup() {
 
-    const phone = phoneInput.value.replace(/\D/g, "");
+    //const phone = phoneInput.value.replace(/\D/g, "");
+    const email = emailInput.value.trim();
     const state = stateSelect.value;
     const city = citySelect.value;
 
-    if (phone.length !== 10) {
-        console.log("Invalid phone number.");
-        alert("Please enter a valid 10-digit phone number.");
-        phoneInput.focus();
-        return;
-    }
+    // if (phone.length !== 10) {
+    //     console.log("Invalid phone number.");
+    //     alert("Please enter a valid 10-digit phone number.");
+    //     phoneInput.focus();
+    //     return;
+    // }
+    if (!validateEmail()) return;
 
     if (state === "") {
         console.log("State not selected.");
@@ -168,7 +199,8 @@ function validateSignup() {
 // ++++++++++++++++++++ This is the object that stores the user information +++++++++++++++
 // you can use it to conect to your python code 
     const user = {
-        phone: phone,
+        //phone: phone,
+        email: email,
         state: state,
         city: city
     };
