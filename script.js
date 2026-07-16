@@ -196,8 +196,7 @@ function validateSignup() {
 
     // alert("Registration successful!");
 
-// ++++++++++++++++++++ This is the object that stores the user information +++++++++++++++
-// you can use it to conect to your python code 
+// ++++++++++++++++++++ using this to create json file
     const user = {
         //phone: phone,
         email: email,
@@ -210,4 +209,77 @@ function validateSignup() {
 
     alert("Registration successful!");
 // ++++++++++++++++++++
+
+saveUserToDatabase(user);
+
+sendUserToPython(user);
+
+}
+
+async function saveUserToDatabase(user) {
+    console.log("Sending user to database server:", user);
+
+    try {
+        const response = await fetch("http://127.0.0.1:5001/save-user", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(user)
+        });
+
+        console.log("Response status:", response.status);
+
+        const result = await response.json();
+
+        console.log("Database server response:", result);
+
+    } catch (error) {
+        console.error("Database connection error:", error);
+    }
+}
+
+// unsubscribeBtn.addEventListener("click", function () {
+//     console.log("Unsubscribe button clicked!");
+// });
+unsubscribeBtn.addEventListener("click", unsubscribeUser);
+
+async function unsubscribeUser() {
+    const email = emailInput.value.trim();
+
+    if (!email) {
+        alert("Please enter your email address.");
+        emailInput.focus();
+        return;
+    }
+
+    if (!validateEmail()) {
+        return;
+    }
+
+    try {
+        const response = await fetch("http://127.0.0.1:5001/unsubscribe", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ email: email })
+        });
+
+        const result = await response.json();
+
+        console.log("Unsubscribe response:", result);
+
+        if (!response.ok) {
+            alert(result.message);
+            return;
+        }
+
+        alert(result.message);
+        emailInput.value = "";
+
+    } catch (error) {
+        console.error("Unsubscribe error:", error);
+        alert("Unable to complete the unsubscribe request.");
+    }
 }
