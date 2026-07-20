@@ -24,6 +24,8 @@ initApp();
 // ======================================================
 // LOCATION FUNCTIONS
 // ======================================================
+// Load the states and cities from the JSON file.
+// Populate the State and City dropdown using the data from locations.json.
 
 function loadLocations() {
 
@@ -36,7 +38,8 @@ function loadLocations() {
             stateSelect.addEventListener("change", function () {
 
                 clearCities();
-
+                // When the user selects a state, reload the City dropdown
+                // using the corresponding cities from the JSON file.
                 const selectedState = data.states.find(
                     state => state.name === stateSelect.value
                 );
@@ -119,7 +122,7 @@ function validateEmail() {
     return true;
 }
 
-
+//+++++++++ NOT IN USE ++++++++++++++++++++
 // function setupPhoneFormatter() {
 
 //     phoneInput.addEventListener("input", function () {
@@ -205,9 +208,9 @@ function validateSignup() {
     };
 
 // ++++++++++ TEST 2 ++++++++++
-    console.log("User object:", user);
+    // console.log("User object:", user);
 
-    alert("Registration successful!");
+    // alert("Registration successful!");
 // ++++++++++++++++++++
 
 saveUserToDatabase(user);
@@ -216,10 +219,13 @@ sendUserToPython(user);
 
 }
 
+// Sends the user's registration information to the backend server and stores it in the application's database.
+//The Object user - Contains the user's email, state, and city
 async function saveUserToDatabase(user) {
     console.log("Sending user to database server:", user);
 
     try {
+         // Send the user object (email, state, and city) to the backend
         const response = await fetch("http://127.0.0.1:5001/save-user", {
             method: "POST",
             headers: {
@@ -229,12 +235,14 @@ async function saveUserToDatabase(user) {
         });
 
         console.log("Response status:", response.status);
-
+        
+        // Convert the server response into a JavaScript object
         const result = await response.json();
 
         console.log("Database server response:", result);
 
     } catch (error) {
+         // Display an error if the request cannot be completed
         console.error("Database connection error:", error);
     }
 }
@@ -242,9 +250,17 @@ async function saveUserToDatabase(user) {
 // unsubscribeBtn.addEventListener("click", function () {
 //     console.log("Unsubscribe button clicked!");
 // });
+
+
+
+// ======================================================
+// UNSUBSCRIBE
+// ======================================================
+//sends an unsubscribe request to the backend using the email entered by the user.
 unsubscribeBtn.addEventListener("click", unsubscribeUser);
 
 async function unsubscribeUser() {
+    // Get the email entered in the unsubscribe field.
     const email = emailInput.value.trim();
 
     if (!email) {
@@ -258,6 +274,7 @@ async function unsubscribeUser() {
     }
 
     try {
+        // Send the email to the backend to update the user's subscription status.
         const response = await fetch("http://127.0.0.1:5001/unsubscribe", {
             method: "POST",
             headers: {
@@ -265,7 +282,7 @@ async function unsubscribeUser() {
             },
             body: JSON.stringify({ email: email })
         });
-
+ // Convert the server response into a JavaScript object.
         const result = await response.json();
 
         console.log("Unsubscribe response:", result);
