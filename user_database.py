@@ -1,5 +1,6 @@
 import json
 
+# File that stores registered users and their subscription status
 USERS_FILE = "users.json"
 
 
@@ -34,13 +35,14 @@ def save_user(email, state, city):
 
     data["users"].append(new_user)
 
+    # Save the updated user data to the JSON file
     with open(USERS_FILE, "w", encoding="utf-8") as file:
         json.dump(data, file, indent=4)
-
+    
     print("New user saved successfully.")
     return "created"
 
-
+#+++++++++++++++ Test ++++++++++++++++
 # save_user(
 #     "test@email.com",
 #     "Indiana",
@@ -91,25 +93,31 @@ def get_subscribed_users():
 
 
 def unsubscribe_user(email):
+     # Open the JSON database and load the current user data
     with open(USERS_FILE, "r", encoding="utf-8") as file:
         data = json.load(file)
-
+    # Normalize the email to allow case-insensitive comparison
     normalized_email = email.strip().lower()
 
+    # Search for the matching user in the database
     for user in data["users"]:
+         # Compare the stored email with the user's email.
         if user["email"].strip().lower() == normalized_email:
+             # Update the user's subscription status
             user["subscribed"] = False
 
+             # Save the updated user information to the JSON file
             with open(USERS_FILE, "w", encoding="utf-8") as file:
                 json.dump(data, file, indent=4)
-
+                
+             # Confirm that the user was successfully unsubscribed
             print("User unsubscribed successfully.")
             return True
 
     print("User not found.")
     return False
 
-
+# ++++++++++ NOT IN USE +++++++++++++
 # if __name__ == "__main__":
 #     subscribed_users = get_subscribed_users()
 
