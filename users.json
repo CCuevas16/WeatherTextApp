@@ -1,0 +1,52 @@
+{
+    "users": [
+        {
+            "email": "test@email.com",
+            "state": "Indiana",
+            "city": "Indianapolis",
+            "subscribed": false
+        },
+        {
+            "email": "newtest@email.com",
+            "state": "Indiana",
+            "city": "Indianapolis",
+            "subscribed": false
+        },
+        {
+            "email": "seconduser@email.com",
+            "state": "Ohio",
+            "city": "Columbus",
+            "subscribed": false
+        },
+        {
+            "email": "marcilliaalves@hotmail.com",
+            "state": "Illinois",
+            "city": "Joliet",
+            "subscribed": false
+        },
+        {
+            "email": "marcilliaalves@gmail.com",
+            "state": "Indiana",
+            "city": "Indianapolis",
+            "subscribed": false
+        },
+        {
+            "email": "marciliatest@hotmail.com",
+            "state": "Indiana",
+            "city": "Noblesville",
+            "subscribed": false
+        },
+        {
+            "email": "marcilliatest2@hotmail.com",
+            "state": "Indiana",
+            "city": "Portage",
+            "subscribed": false
+        },
+        {
+            "email": "cacuevas21@gmail.com",
+            "state": "Indiana",
+            "city": "Indianapolis",
+            "subscribed": true
+        }
+    ]
+}

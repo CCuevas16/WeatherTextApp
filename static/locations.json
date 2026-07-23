@@ -1,0 +1,96 @@
+{
+  "states": [
+    {
+      "name": "Indiana",
+      "cities": [
+        "Anderson",
+        "Bloomington",
+        "Carmel",
+        "Columbus",
+        "Elkhart",
+        "Evansville",
+        "Fishers",
+        "Fort Wayne",
+        "Gary",
+        "Greenwood",
+        "Indianapolis",
+        "Jeffersonville",
+        "Kokomo",
+        "Lafayette",
+        "Mishawaka",
+        "Muncie",
+        "Noblesville",
+        "Plainfield",
+        "Portage",
+        "South Bend",
+        "Terre Haute",
+        "Valparaiso",
+        "West Lafayette",
+        "Westfield",
+        "Zionsville"
+      ]
+    },
+    {
+      "name": "Illinois",
+      "cities": [
+        "Aurora",
+        "Bloomington",
+        "Champaign",
+        "Chicago",
+        "Decatur",
+        "Elgin",
+        "Joliet",
+        "Naperville",
+        "Normal",
+        "Peoria",
+        "Rockford",
+        "Springfield",
+        "Waukegan"
+      ]
+    },
+    {
+      "name": "Ohio",
+      "cities": [
+        "Akron",
+        "Canton",
+        "Cincinnati",
+        "Cleveland",
+        "Columbus",
+        "Dayton",
+        "Dublin",
+        "Hamilton",
+        "Lima",
+        "Mansfield",
+        "Newark",
+        "Toledo",
+        "Youngstown"
+      ]
+    },
+    {
+      "name": "Kentucky",
+      "cities": [
+        "Bowling Green",
+        "Covington",
+        "Frankfort",
+        "Georgetown",
+        "Lexington",
+        "Louisville",
+        "Owensboro",
+        "Richmond"
+      ]
+    },
+    {
+      "name": "Michigan",
+      "cities": [
+        "Ann Arbor",
+        "Battle Creek",
+        "Dearborn",
+        "Detroit",
+        "Flint",
+        "Grand Rapids",
+        "Kalamazoo",
+        "Warren"
+      ]
+    }
+  ]
+}
