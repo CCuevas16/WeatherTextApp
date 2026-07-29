@@ -5,17 +5,26 @@ A Flask web application that allows users to sign up to receive a 15-hour weathe
 Features
 
 ●	Sign up using an email, state, and city
+
 ●	Receive a 15-hour weather forecast
+
 ●	View temperature, humidity, and rain expectations
+
 ●	Convert forecast times to the user's local timezone
+
 ●	Unsubscribe from forecast emails
+
 ●	Store subscriber information in JSON
+
 ●	Frontend and backend input validation
+
 ●	Send forecasts to all active subscribers
+
 
 Project structure
 
 WeatherProject/
+
 ├── server.py
 ├── weather_service.py
 ├── user_database.py
