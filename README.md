@@ -26,17 +26,29 @@ Project structure
 WeatherProject/
 
 ├── server.py
+
 ├── weather_service.py
+
 ├── user_database.py
+
 ├── run_forecast_job.py
+
 ├── users.json
+
 ├── requirements.txt
+
 ├── templates/
+
 │   └── index.html
+
 └── static/
+
     ├── script.js
+    
     ├── style.css
+    
     └── locations.json
+    
     
 How it works
 
