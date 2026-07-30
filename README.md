@@ -1,5 +1,9 @@
 Daily weather forecast app
 
+
+<img width="1127" height="627" alt="image" src="https://github.com/user-attachments/assets/d3d5bdc7-9880-4097-b0a6-47dcc3e10e18" />
+
+
 A Flask web application that allows users to sign up to receive a 15-hour weather forecast through email. The application uses the OpenWeather API to retrieve forecast data based on the user's selected city and state.
 
 Features
