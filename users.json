@@ -47,6 +47,12 @@
             "state": "Indiana",
             "city": "Indianapolis",
             "subscribed": true
+        },
+        {
+            "email": "cunning.cricket@outlook.com",
+            "state": "Indiana",
+            "city": "Indianapolis",
+            "subscribed": false
         }
     ]
 }
